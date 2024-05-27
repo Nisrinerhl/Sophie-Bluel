@@ -274,11 +274,7 @@ async function generateProjectsInModal() {
 }
 
 
-function GenerateNewElement() {
-    for (const iterator of object) {
-        
-    }
-}
+
 
 
 // Fonction pour supprimer un projet du DOM et du serveur en utilisant l'API 
@@ -424,8 +420,9 @@ async function addNewImage() {
 
 };
 
-
 addNewImage();
+
+
 
 // PRÉVISUALISATION
 // Sélectionne le champ de fichier et ajoute un écouteur d'événements au changement
