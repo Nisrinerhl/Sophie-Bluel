@@ -1,5 +1,5 @@
-const projects = new Set()
-const categories = new Set()
+let projects = [];
+let categories = [];
 const gallery = document.querySelector(".gallery");
 const filters = document.querySelector(".filters");
 const token = localStorage.getItem("token");
@@ -9,16 +9,10 @@ const token = localStorage.getItem("token");
 
 async function init() {
     const allProjects = await getData("works")
-    for (const project of allProjects) {
-        projects.add(project)
-
-    }
+    projects = allProjects;
 
     const allCategories = await getData("categories")
-    for (const categoryname of allCategories) {
-        categories.add(categoryname)
-
-    }
+    categories = allCategories;
 
     displayProjects()
     if (token) {
@@ -405,7 +399,7 @@ async function addNewImage() {
             if (response.ok) {
                 console.log("Ce projet a été ajouté avec succès.");
                 // Efface le contenu actuel de la galerie avant d'ajouter les nouveaux projets
-                generateProjectsInModal();
+                init();
                 // appeler nouvel function//
                 
             }
