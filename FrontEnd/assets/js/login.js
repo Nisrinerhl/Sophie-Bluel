@@ -3,6 +3,11 @@ const form = document.querySelector("form");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 
+const token = localStorage.getItem("token");
+
+if (token) {
+  window.location.href = "./index.html";
+}
 // Événement de soumission du formulaire
 async function fetchLogin(email, password) {
   try {
