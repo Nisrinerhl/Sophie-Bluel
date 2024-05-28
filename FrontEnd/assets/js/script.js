@@ -99,6 +99,10 @@ function displayFilter() {
     allButton.innerText = "Tous";
     allButton.dataset.id = 0;
     allButton.classList.add("btn-filter");
+        allButton.addEventListener("click", (e) => {
+            console.log(e.target.dataset.id);
+            displayProjects(0);
+        });
 
     fragment.appendChild(allButton);
 
@@ -106,6 +110,10 @@ function displayFilter() {
         const button = document.createElement("button");
         button.innerText = category.name;
         button.dataset.id = category.id;
+        button.addEventListener("click", (e) => {
+            console.log(e.target.dataset.id);
+            displayProjects(e.target.dataset.id);
+        });
 
         button.classList.add("btn-filter");
 
@@ -117,25 +125,7 @@ function displayFilter() {
 
 
 }
-setFilterListener()
 
-
-function setFilterListener() {
-    // récupére les 4 filtres du html puis via un for of leur donne un event listener
-
-    const filters = document.querySelectorAll(".btn-filter");
-    for (const button of filters) {
-        button.addEventListener("click", (e) => {
-            displayProjects(e.target.dataset.id);
-        })
-    }
-
-    const allButton = Array.from(filters).find(button => button.dataset.id === '0');
-    if (allButton) {
-        console.log("'Tous' button automatic");
-        allButton.click();
-    }
-}
 
 
 
@@ -399,10 +389,14 @@ async function addNewImage() {
             if (response.ok) {
                 console.log("Ce projet a été ajouté avec succès.");
                 // Efface le contenu actuel de la galerie avant d'ajouter les nouveaux projets
+                document.getElementById("photo-title").value = "";
+                document.getElementById("category-select").value = 1;
+                document.querySelectorAll(".previewImg").forEach((el) => el.remove());
+                document.querySelector(".label-image-container").style.display =
+                  "flex";              
                 init();
                 // appeler nouvel function//
-                
-            }
+              }
 
         } catch (error) {
             console.error("Erreur :", error);
@@ -427,7 +421,7 @@ fileInput.addEventListener("change", function (event) {
 
     // Cache seulement le texte du label après la sélection de l'image
     const fileLabel = document.getElementById("file");
-    const buttonText = fileLabel.querySelector(".custom-button");
+    const buttonText = fileLabel.querySelector(".label-image-container");
     buttonText.style.display = "none";
 });
 
@@ -438,6 +432,7 @@ function previewPicture(file) {
         // Créez un nouvel élément d'image
         const previewImg = document.createElement("img");
         previewImg.alt = "Image Preview";
+        previewImg.className = "previewImg";
 
         // Utilise FileReader pour lire le contenu du fichier en tant que Data URL
         const reader = new FileReader();
@@ -447,7 +442,7 @@ function previewPicture(file) {
         reader.readAsDataURL(file);
 
         // Insére l'image prévisualisée après le label
-        fileInput.insertAdjacentElement("afterend", previewImg);
+        document.querySelector(".custom-label").appendChild(previewImg);
     }
 }
 

@@ -644,19 +644,33 @@ a {
 
 /*PARTIE ADMINISTRATEUR*/
 
+#image-preview-container {
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
 #image-preview-container img {
-	width: 129px;
-	height: 193px;
-	top: 1px;
-	position: absolute;
-	left: 145px;
+    width: 129px;
+    height: 193px;
+    top: 1px;
+    position: absolute;
+    left: 145px;
 
 }
 
 
 /* Masquer le bouton de téléchargement d'image par défaut */
 #add-photo-input {
-	display: none;
+    display: none;
+}
+
+.label-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
 }
 
 /* Style pour le bouton de téléchargement d'image personnalisé */
