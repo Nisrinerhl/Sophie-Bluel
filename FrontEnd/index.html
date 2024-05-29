@@ -73,15 +73,18 @@
 				<i class="fa-solid fa-xmark js-modal-close close-icon" id="closeIconModal2"></i>
 				<a href="#" id="backToGallery"><i class="fa fa-light fa-arrow-left" aria-hidden="true"></i></a>
 				<h3 class="modalTitle">Ajout Photo</h3>
-				<div id="image-preview-container">
-					<label for="add-photo-input" id="file" class="custom-label">
-						<div class="label-image-container">
-							<i class="fa fa-thin fa-image faAddImgSquare"></i>
-							<span class="custom-button custom-button-label">+ Ajouter photo</span>
-							<p class="info">jpg, png : 4mo max</p>
-						</div>
-					</label>
-					<input type="file" id="add-photo-input" name="image" class="custom-button" accept="image/*" />
+				<div class="add-picture">
+					<!-- FORMULAIRE -->
+					<div id="image-preview-container">
+						<label for="add-photo-input" id="file" class="custom-label">
+							<div class="label-image-container">
+								<i class="fa fa-thin fa-image faAddImgSquare"></i>
+								<span class="custom-button custom-button-label">+ Ajouter photo</span>
+								<p class="info">jpg, png : 4mo max</p>
+							</div>
+						</label>
+						<input type="file" id="add-photo-input" name="image" class="custom-button" accept="image/*" />
+					</div>
 				</div>
 				<h4>Titre</h4>
 				<input type="text" name="photo-title" id="photo-title">
