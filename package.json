@@ -1,0 +1,14 @@
+{
+  "name": "sophie-bluel",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://nisrinerhl.github.io/Sophie-Bluel",
+  "scripts": {
+    "predeploy": "echo 'Ready to deploy FrontEnd folder'",
+    "deploy": "gh-pages -d FrontEnd"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
+
